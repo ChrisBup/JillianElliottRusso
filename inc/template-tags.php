@@ -26,7 +26,7 @@ if ( ! function_exists( 'understrap_posted_on' ) ) {
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
-		$posted_on   = apply_filters(
+		$posted_on = apply_filters(
 			'understrap_posted_on', sprintf(
 				'<span class="posted-on">%1$s <a href="%2$s" rel="bookmark">%3$s</a></span>',
 				esc_html_x( 'Posted on', 'post date', 'understrap' ),
@@ -34,7 +34,7 @@ if ( ! function_exists( 'understrap_posted_on' ) ) {
 				apply_filters( 'understrap_posted_on_time', $time_string )
 			)
 		);
-		$byline      = apply_filters(
+		$byline = apply_filters(
 			'understrap_posted_by', sprintf(
 				'<span class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></span>',
 				$posted_on ? esc_html_x( 'by', 'post author', 'understrap' ) : esc_html_x( 'Posted by', 'post author', 'understrap' ),
@@ -43,6 +43,25 @@ if ( ! function_exists( 'understrap_posted_on' ) ) {
 			)
 		);
 		echo $posted_on . $byline; // WPCS: XSS OK.
+	}
+}
+
+// customized version of understrap_posted_on above
+if ( ! function_exists( 'custom_posted_on' ) ) {
+	function custom_posted_on() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+		$post_date = apply_filters(
+			'custom_posted_on', sprintf(
+				'<span class="posted-on"><a href="%1$s" rel="bookmark">%2$s</a></span>',
+				esc_url( get_permalink() ),
+				apply_filters( 'custom_posted_on_time', $time_string )
+			)
+		);
+		echo $post_date;
 	}
 }
 

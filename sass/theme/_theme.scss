@@ -1,11 +1,210 @@
-// This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+// all custom styles
 
-.site-main__homepage-img {
+// global
+
+html {
+  height: 100%;
+}
+
+body:not(.home) {
+  position: relative;
+  margin: 0;
+  padding-bottom: 4rem;
+  min-height: 100%;
+}
+
+// typography
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i'); // 300, 400, 700
+
+h1, h2, h3, h4, h5, h6, p, li {
+  font-family: "Open Sans", sans-serif;
+  color: $textcolor;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 2rem 0 1rem 0;
+  font-weight: 300;
+}
+
+p, li {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+a {
+  color: $linkcolor;
+  &:hover {
+    color: $linkcolorhover;
+    text-decoration: none;
+  }
+}
+
+.page-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 3rem 0 2rem 0;
+}
+
+// header
+
+nav.navbar.navbar-expand-md.navbar-light.bg-primary {
+  font-family: "Open Sans", sans-serif;
+  background-color: $lightcolor !important;
+  a {
+    color: $linkcolor;
+    &:hover {
+      color: $linkcolorhover;
+      text-decoration: none;
+    }
+  }
+  .navbar-toggler {
+    border: none;
+  }
+}
+
+// homepage
+
+.site_homepage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.wrapper__home-hero {
+  position: relative;
   width: 100%;
-  height: 80vh;
-  background-image: url('/jillianelliottrusso/wp-content/uploads/2019/01/IMG_8338.jpeg');
+  flex: 1;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-size: cover;
-  background-position: center;
+  background-position: left bottom;
   background-repeat: no-repeat;
-  // filter: blur(4px);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(42,63,65,0.75);
+  }
+}
+
+.home-hero-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-hero-content__title,
+.home-hero-content p {
+  margin-top: 0;
+  color: white;
+}
+
+.home-hero-content__title {
+  padding-bottom: 20px;
+  font-size: 5rem;
+  font-weight: 400;
+  border-bottom: 10px solid white;
+}
+
+.home-hero-content p {
+  font-size: 2rem;
+}
+
+// post pages
+
+.posted-on {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.posts {
+  .post {
+    padding: 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    ~ .post {
+      border-top: 1px solid $lighttextcolor;
+    }
+    img {
+      width: 200px;
+    }
+    header {
+      flex: 1 0 auto;
+      margin-left: 1rem;
+      .entry-title {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.offset-left {
+  margin-left: -200px;
+}
+
+.offset-right {
+  float: right;
+  position: relative;
+  margin-left: -200px;
+  left: 200px;
+}
+
+// about page
+
+.recommendations-header {
+  padding-top: 2rem;
+}
+
+.recommendations-subheader {
+  padding-bottom: 1rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+// recommendations
+
+.rec-list {
+  margin-left: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rec-list__item {
+  padding-bottom: 0.5rem;
+  ~ .rec-list__item {
+    border-top: 1px solid $lighttextcolor;
+  }
+}
+
+.rec-list__text {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.rec-list__description {
+  margin: 1rem 0 0 0;
+}
+
+.rec-list__read-more {
+  font-size: 80%;
+}
+
+// footer
+
+#wrapper-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.site-info p {
+  font-size: 80%;
 }

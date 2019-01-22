@@ -1,5 +1,8 @@
 <?php
 /**
+ *
+ * This is the default template.
+ *
  * The template for displaying all pages.
  *
  * This is the template that displays all pages by default.
@@ -33,7 +36,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
+					<!-- Above Content -->
+
 					<?php get_template_part( 'loop-templates/content', 'page' ); ?>
+
+					<!-- Below Content -->
 
 					<?php
 					// If comments are open or we have at least one comment, load up the comment template.

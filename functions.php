@@ -33,3 +33,30 @@ foreach ( $understrap_includes as $file ) {
 	}
 	require_once $filepath;
 }
+
+// add custom field to WP REST API
+// video C - 43 REST API - Add New Custom Field - https://www.youtube.com/watch?v=fYXxpmmLvMY
+function custom_rest() {
+	register_rest_field('post', 'authorName', array(
+    'get_callback' => function() { return get_the_author(); }
+	));
+}
+add_action('rest_api_init', 'custom_rest');
+
+// include custom post type route in WP REST API
+require get_theme_file_path('/inc/custom-route.php');
+
+// remove "Category:" from post category title"
+function prefix_category_title( $title ) {
+  if ( is_category() ) {
+    $title = single_cat_title( '', false );
+  }
+  return $title;
+}
+add_filter( 'get_the_archive_title', 'prefix_category_title' );
+
+// reduce excerpt length
+function wpdocs_custom_excerpt_length( $length ) {
+  return 20;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );

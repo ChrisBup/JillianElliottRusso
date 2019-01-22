@@ -1,6 +1,13 @@
-// Use this file to overwrite the basic Bootstrap variables and add your own variables
-// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
-// Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
+// all custom variables
 
+$accentcolor: #ffc700;
+$brightaccentcolor: #ef6165;
+$textcolor: #2A3F41;
+$lighttextcolor: lighten(#489499, 40%);
+$linkcolor: #489499;
+$linkcolorhover: lighten(#489499, 20%);
+$lightcolor: #f4f4f3;
 
-$primary: #5533ff; // Thats a sample how you could change a BootStrap variable.
+// overwrites of Bootstrap variables stored in src/sass/bootstrap4/_variables.scss
+
+$primary: $textcolor !default;

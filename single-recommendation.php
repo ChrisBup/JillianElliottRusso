@@ -1,8 +1,6 @@
 <?php
 /**
- * Template Name: Homepage
- *
- * The is a custom template for the homepage.
+ * The template for displaying all single posts.
  *
  * @package understrap
  */
@@ -11,13 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
   exit; // Exit if accessed directly.
 }
 
-get_header( 'homepage' );
-
+get_header();
 $container = get_theme_mod( 'understrap_container_type' );
-
 ?>
 
-<div class="wrapper wrapper__home-hero" id="page-wrapper" style="background-image: url('<?php bloginfo('url'); ?>/wp-content/uploads/2019/01/IMG_8338.jpeg');">
+<div class="wrapper" id="single-wrapper">
 
   <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
@@ -26,14 +22,18 @@ $container = get_theme_mod( 'understrap_container_type' );
       <!-- Do the left sidebar check -->
       <?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
 
-      <main class="site-main site-main__homepage" id="main">
+      <main class="site-main" id="main">
 
         <?php while ( have_posts() ) : the_post(); ?>
 
-          <div class="home-hero-content">
-            <h1 class="home-hero-content__title">Jillian Russo PhD</h1>
-            <?php the_content(); ?>
-          </div>
+          <?php get_template_part( 'loop-templates/content', 'single-recommendation' ); ?>
+
+          <?php
+          // If comments are open or we have at least one comment, load up the comment template.
+          if ( comments_open() || get_comments_number() ) :
+            comments_template();
+          endif;
+          ?>
 
         <?php endwhile; // end of the loop. ?>
 
@@ -46,6 +46,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 
   </div><!-- #content -->
 
-</div><!-- #page-wrapper -->
+</div><!-- #single-wrapper -->
 
-<?php get_footer( 'homepage' ); ?>
+<?php get_footer(); ?>

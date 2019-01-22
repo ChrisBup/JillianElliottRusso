@@ -24,9 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( 'post' == get_post_type() ) : ?>
 
 			<div class="entry-meta">
-
-				<?php understrap_posted_on(); ?>
-
+				<?php custom_posted_on(); ?>
 			</div><!-- .entry-meta -->
 
 		<?php endif; ?>

@@ -28,7 +28,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<div class="site-info">
 
-						<p>&copy; <?php echo date('Y'); ?> Jillian Russo</p>
+						<p>&copy; <?php echo date('Y'); ?> Jillian Russo | Site by Jillian's wonderful husband, <a href="https://www.chrisheuberger.com/">Chris</a>.</p>
 
 					</div><!-- .site-info -->
 
