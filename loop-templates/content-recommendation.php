@@ -10,6 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
+<!-- loop-templates/content-recommendation.php -->
+
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
   <header class="entry-header">

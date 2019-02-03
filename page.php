@@ -1,6 +1,5 @@
 <?php
 /**
- *
  * This is the default template.
  *
  * The template for displaying all pages.
@@ -41,6 +40,20 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php get_template_part( 'loop-templates/content', 'page' ); ?>
 
 					<!-- Below Content -->
+
+					<?php if ( is_page( 'writing' ) ) {  ?>
+					  <!-- ACF Writing -->
+					  <div class="acf-blocks">
+					    <?php get_template_part( 'loop-templates/content', 'writing' ); ?>
+					  </div>
+					<?php } ?>
+
+          <?php if ( is_page( 'consulting' ) ) {  ?>
+					  <!-- ACF Consulting -->
+					  <div class="acf-blocks">
+					    <?php get_template_part( 'loop-templates/content', 'consulting' ); ?>
+					  </div>
+					<?php } ?>
 
 					<?php
 					// If comments are open or we have at least one comment, load up the comment template.

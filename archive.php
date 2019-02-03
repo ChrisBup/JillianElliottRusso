@@ -36,7 +36,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						?>
 					</header><!-- .page-header -->
 
-					<div class="posts">
+					<div class="posts posts__custom">
 
 						<?php /* Start the Loop */ ?>
 						<?php while ( have_posts() ) : the_post(); ?>
@@ -52,13 +52,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 						<?php endwhile; ?>
 
-					<?php else : ?>
+					</div>
 
-						<?php get_template_part( 'loop-templates/content', 'none' ); ?>
+				<?php else : ?>
 
-					<?php endif; ?>
+					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
 
-				</div>
+				<?php endif; ?>
 
 			</main><!-- #main -->
 

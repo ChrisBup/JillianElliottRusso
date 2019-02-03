@@ -17,7 +17,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 ?>
 
-<div class="wrapper wrapper__home-hero" id="page-wrapper" style="background-image: url('<?php bloginfo('url'); ?>/wp-content/uploads/2019/01/IMG_8338.jpeg');">
+<div class="wrapper wrapper__home-hero" id="page-wrapper" style="background-image: url('<?php bloginfo('url'); ?>/wp-content/uploads/2019/01/IMG_1592.jpg');">
 
   <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
@@ -28,14 +28,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 
       <main class="site-main site-main__homepage" id="main">
 
-        <?php while ( have_posts() ) : the_post(); ?>
+        <!-- <?php while ( have_posts() ) : the_post(); ?>
 
           <div class="home-hero-content">
-            <h1 class="home-hero-content__title">Jillian Russo PhD</h1>
+            <h1 class="home-hero-content__title"></h1>
             <?php the_content(); ?>
           </div>
 
-        <?php endwhile; // end of the loop. ?>
+        <?php endwhile; // end of the loop. ?> -->
 
       </main><!-- #main -->
 

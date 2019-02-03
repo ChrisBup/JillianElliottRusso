@@ -25,6 +25,10 @@ Work on the theme locally and update theme files on production manually via FTP.
 To spin up a local server:  
 `MAMP > Start Servers`
 
+confirm node version:  
+`$ nvm ls`  
+`$ nvm use 8.9`
+
 To install dependencies from the theme root, run:  
 `$ npm install`
 
@@ -49,3 +53,12 @@ To compile Sass files with Browsersync, run:
 
 View site locally at:  
 [http://localhost:3000/jillianelliottrusso/](http://localhost:3000/jillianelliottrusso/)
+
+### General
+
+Posts are tagged with one of two categories: exhibitions or criticism. Both categories are listed in the nav as separate blog index pages. They both use `archive.php` and `loop-templates/content.php`.
+
+The unused default combination blog index page uses `index.php` and `loop-templates/content.php`.
+
+`archive-recommendations.php` (which controls `/recommendations`) is the default index page for the Recommendations custom post type.  
+`recommendations-custom-index.php` (which controls `/recommendations-custom-index`) is a custom page with Recommendations index added.

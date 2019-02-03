@@ -31,7 +31,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
           <header class="page-header">
             <h1>Recommendations</h1>
-            <p>A collection of highlights from art and life.</p>
+            <p class="recommendations-subheader">A collection of highlights from art and life.</p>
           </header><!-- .page-header -->
 
           <?php /* Start the Loop */ ?>

@@ -13,6 +13,10 @@ body:not(.home) {
   min-height: 100%;
 }
 
+button:focus {
+  outline: none;
+}
+
 // typography
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i'); // 300, 400, 700
@@ -81,7 +85,7 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
   justify-content: center;
   align-items: center;
   background-size: cover;
-  background-position: left bottom;
+  background-position: left 70%;
   background-repeat: no-repeat;
   &::before {
     content: '';
@@ -91,6 +95,7 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
     left: 0;
     right: 0;
     background: rgba(42,63,65,0.75);
+    background: linear-gradient(to bottom right, rgba(72,148,153,0.25), rgba(42,63,65,0.75));
   }
 }
 
@@ -125,39 +130,102 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
   display: block;
 }
 
-.posts {
+.acf-blocks,
+.posts__custom {
+  .acf-block,
   .post {
     padding: 2rem 0;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
+    ~ .acf-block,
     ~ .post {
       border-top: 1px solid $lighttextcolor;
+    }
+    @include media-breakpoint-up(sm) {
+      flex-direction: row;
     }
     img {
       width: 200px;
     }
-    header {
+    .entry-header {
       flex: 1 0 auto;
-      margin-left: 1rem;
-      .entry-title {
+      margin-top: 1rem;
+      @include media-breakpoint-up(sm) {
         margin-top: 0;
+        margin-left: 1rem;
+      }
+      &.acf-title h2,
+      .entry-title {
+        margin: 0;
       }
     }
   }
 }
 
-.offset-left {
-  margin-left: -200px;
+#single-wrapper .entry-header {
+  margin-bottom: 3rem;
 }
 
-.offset-right {
-  float: right;
-  position: relative;
-  margin-left: -200px;
-  left: 200px;
+.wp-block-embed,
+.wp-block-image,
+.wp-block-gallery,
+.wp-block-embed-twitter,
+.wp-block-embed-instagram {
+  margin: 2rem 0;
+}
+
+// post images
+
+.wp-block-image figcaption {
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  color: $textcolor;
+}
+
+@include media-breakpoint-up(xxl) {
+
+  .offset-left {
+    float: left;
+    margin-left: -200px;
+    margin-right: 40px;
+  }
+
+  .offset-right {
+    float: right;
+    position: relative;
+    left: 200px;
+    margin-left: -160px;
+  }
+
+}
+
+// post galleries
+
+#colorbox.advgb_lightbox #cboxClose {
+  top: -40px !important;
+  bottom: auto !important;
 }
 
 // about page
+
+.site-main__about {
+  @include media-breakpoint-up(sm) {
+    .entry-content {
+      display: flex;
+    }
+  }
+}
+
+.about-img {
+  width: 50%;
+  margin-right: 2rem;
+  @include media-breakpoint-up(sm) {
+    flex: 1 0 300px;
+  }
+}
+
+// recommendations
 
 .recommendations-header {
   padding-top: 2rem;
@@ -168,8 +236,6 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
   font-weight: 300;
   font-style: italic;
 }
-
-// recommendations
 
 .rec-list {
   margin-left: 0;
