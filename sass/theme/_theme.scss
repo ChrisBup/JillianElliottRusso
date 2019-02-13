@@ -6,11 +6,17 @@ html {
   height: 100%;
 }
 
+// to help set footer at the bottom of the browser window, even on short pages
 body:not(.home) {
   position: relative;
   margin: 0;
   padding-bottom: 4rem;
   min-height: 100%;
+}
+
+#archive-wrapper,
+#page-wrapper {
+  padding: 30px 0 200px 0;
 }
 
 button:focus {
@@ -19,10 +25,8 @@ button:focus {
 
 // typography
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i'); // 300, 400, 700
-
 h1, h2, h3, h4, h5, h6, p, li {
-  font-family: "Open Sans", sans-serif;
+  font-family: $font-family-sans-serif;
   color: $textcolor;
 }
 
@@ -31,8 +35,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 
+h4 {
+  font-size: 1.4rem;
+}
+
 p, li {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
 }
@@ -47,15 +55,21 @@ a {
 
 .page-title {
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 3rem 0 2rem 0;
+  letter-spacing: 1px;
+  margin: 0 0 2rem 0;
+}
+
+.page .entry-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 2rem 0;
 }
 
 // header
 
 nav.navbar.navbar-expand-md.navbar-light.bg-primary {
   font-family: "Open Sans", sans-serif;
-  background-color: $lightcolor !important;
+  background-color: #fff !important;
   a {
     color: $linkcolor;
     &:hover {
@@ -71,15 +85,24 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
 // homepage
 
 .site_homepage {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
+  #wrapper-navbar {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+  }
+  nav.navbar.navbar-expand-md.navbar-light.bg-primary {
+    background-color: transparent !important;
+    a {
+      color: #fff;
+    }
+  }
 }
 
 .wrapper__home-hero {
   position: relative;
   width: 100%;
-  flex: 1;
+  height: 100vh;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -95,7 +118,7 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
     left: 0;
     right: 0;
     background: rgba(42,63,65,0.75);
-    background: linear-gradient(to bottom right, rgba(72,148,153,0.25), rgba(42,63,65,0.75));
+    background: linear-gradient(180deg, rgba(42,63,65,0.95), rgba(42,63,65,0.50) 25%, rgba(72,148,153,0.25));
   }
 }
 
@@ -137,6 +160,7 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: flex-start;
     ~ .acf-block,
     ~ .post {
@@ -149,18 +173,22 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
       width: 200px;
     }
     .entry-header {
-      flex: 1 0 auto;
       margin-top: 1rem;
       @include media-breakpoint-up(sm) {
         margin-top: 0;
         margin-left: 1rem;
       }
-      &.acf-title h2,
+      &.acf-title h4,
       .entry-title {
         margin: 0;
       }
     }
   }
+}
+
+a time,
+time {
+  color: $textcolor;
 }
 
 #single-wrapper .entry-header {
@@ -173,6 +201,20 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
 .wp-block-embed-twitter,
 .wp-block-embed-instagram {
   margin: 2rem 0;
+}
+
+.wp-block-gallery {
+  &.columns-2 {
+    width: 100%;
+    .blocks-gallery-image img,
+    .blocks-gallery-item img {
+      width: 100%;
+    }
+    @include media-breakpoint-up(sm) {
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
 }
 
 // post images
@@ -207,10 +249,69 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
   bottom: auto !important;
 }
 
+// writing and consulting
+
+.acf-blocks {
+  .acf-block {
+    img {
+      width: 100px;
+      margin-bottom: 1rem;
+      @include media-breakpoint-up(sm) {
+        margin-right: 1rem;
+      }
+    }
+    .entry-header {
+      margin-top: 0;
+      @include media-breakpoint-up(sm) {
+        margin-left: 0;
+      }
+      &.acf-title p {
+        margin-top: 1rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.wp-block-gallery .blocks-gallery-image,
+.wp-block-gallery .blocks-gallery-item {
+  display: block;
+}
+
+.wp-block-gallery .blocks-gallery-image figure,
+.wp-block-gallery .blocks-gallery-item figure {
+  display: block;
+}
+
+.wp-block-gallery.is-cropped {
+  .blocks-gallery-image figure,
+  .blocks-gallery-item figure {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.wp-block-gallery:not(.is-cropped) {
+  .blocks-gallery-image figure,
+  .blocks-gallery-item figure {
+    height: auto;
+  }
+}
+
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+  position: relative;
+  top: 0;
+  padding: 10px 5px;
+  text-align: left;
+  color: $textcolor;
+  background: white;
+}
+
 // about page
 
 .site-main__about {
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(md) {
     .entry-content {
       display: flex;
     }
@@ -219,8 +320,10 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
 
 .about-img {
   width: 50%;
+  margin-top: 0;
+  margin-bottom: 1rem;
   margin-right: 2rem;
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(md) {
     flex: 1 0 300px;
   }
 }

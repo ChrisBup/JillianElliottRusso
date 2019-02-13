@@ -25,14 +25,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <article class="acf-block">
 
-      <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+      <?php if(!empty($image)): ?>
+        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+      <?php endif; ?>
 
       <header class="entry-header acf-title">
         
-        <div class="entry-meta">
-          <span class="posted-on"><?php echo $date; ?></span>
-        </div>
-        
+        <?php if(!empty($date)): ?>
+          <div class="entry-meta">
+            <span class="posted-on"><?php echo $date; ?></span>
+          </div>
+        <?php endif; ?>
+
         <?php echo $title; ?>
 
       </header><!-- .entry-header -->

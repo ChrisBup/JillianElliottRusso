@@ -26,14 +26,14 @@ To spin up a local server:
 `MAMP > Start Servers`
 
 confirm node version:  
-`$ nvm ls`  
-`$ nvm use 8.9`
+`nvm ls`  
+`nvm use 8.9`
 
 To install dependencies from the theme root, run:  
-`$ npm install`
+`npm install`
 
 To compile Sass files without Browsersync, run:   
-`$ gulp watch`
+`gulp watch`
 
 View site locally at:  
 [http://localhost:8888/jillianelliottrusso/](http://localhost:8888/jillianelliottrusso/)
@@ -49,10 +49,19 @@ To this:
 `"proxy": "localhost:8888/jillianelliottrusso/",`
 
 To compile Sass files with Browsersync, run:  
-`$ gulp watch-bs`
+`gulp watch-bs`
 
 View site locally at:  
 [http://localhost:3000/jillianelliottrusso/](http://localhost:3000/jillianelliottrusso/)
+
+### Customizing
+
+Add custom JavasScript to: `/js/custom-javascript.js`
+
+To compile scripts, run:  
+`gulp scripts`
+
+Note that `gulp watch-bs` includes `gulp scripts`.
 
 ### General
 

@@ -2,16 +2,22 @@
 
 $accentcolor: #ffc700;
 $brightaccentcolor: #ef6165;
+
 $textcolor: #2A3F41; // rgb(42,63,65);
-$lighttextcolor: lighten(#489499, 40%);
-$linkcolor: #489499; // rgb(72,148,153);
-$linkcolorhover: lighten(#489499, 20%);
+$lighttextcolor: lighten(#2A3F41, 40%);
+
+$linkcolor: #5FA14F; // rgb(95,161,79);
+$linkcolorhover: lighten(#5FA14F, 20%);
+
 $lightcolor: #f4f4f3;
 
 // overwrites of Bootstrap variables stored in src/sass/bootstrap4/_variables.scss
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i'); // 300, 400, 700
+
+$font-family-sans-serif: "Open Sans", sans-serif;
 $primary: $textcolor !default;
-$navbar-light-color: $linkcolor;
+$navbar-light-color: #fff;
 
 $grid-breakpoints: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
