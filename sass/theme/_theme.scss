@@ -15,7 +15,8 @@ body:not(.home) {
 }
 
 #archive-wrapper,
-#page-wrapper {
+#page-wrapper,
+#single-wrapper {
   padding: 30px 0 200px 0;
 }
 
@@ -35,8 +36,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
 h4 {
   font-size: 1.4rem;
+  line-height: 1.6;
 }
 
 p, li {
@@ -151,6 +157,10 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
 .posted-on {
   margin-bottom: 0.5rem;
   display: block;
+  .entry-date {
+    font-style: italic;
+    color: $midlighttextcolor;
+  }
 }
 
 .acf-blocks,
@@ -176,11 +186,28 @@ nav.navbar.navbar-expand-md.navbar-light.bg-primary {
       margin-top: 1rem;
       @include media-breakpoint-up(sm) {
         margin-top: 0;
+        &.acf-title {
+          margin-top: -6px;
+        }
         margin-left: 1rem;
       }
       &.acf-title h4,
       .entry-title {
         margin: 0;
+      }
+    }
+  }
+}
+
+.category-exhibitions {
+  .acf-blocks,
+  .posts__custom {
+    .acf-block,
+    .post {
+      .entry-header {
+        @include media-breakpoint-up(sm) {
+          margin-top: -6px;
+        }
       }
     }
   }
@@ -203,6 +230,22 @@ time {
   margin: 2rem 0;
 }
 
+p + .wp-block-embed,
+p + .wp-block-image,
+p + .wp-block-gallery,
+p + .wp-block-embed-twitter,
+p + .wp-block-embed-instagram {
+  margin-top: 3rem !important;
+}
+
+.wp-block-embed + p,
+.wp-block-image + p,
+.wp-block-gallery + p,
+.wp-block-embed-twitter + p,
+.wp-block-embed-instagram + p {
+  margin-top: 3rem !important;
+}
+
 .wp-block-gallery {
   &.columns-2 {
     width: 100%;
@@ -212,7 +255,7 @@ time {
     }
     @include media-breakpoint-up(sm) {
       width: 60%;
-      margin: 0 auto;
+      margin: 2rem auto;
     }
   }
 }

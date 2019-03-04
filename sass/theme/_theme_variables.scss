@@ -4,6 +4,7 @@ $accentcolor: #ffc700;
 $brightaccentcolor: #ef6165;
 
 $textcolor: #2A3F41; // rgb(42,63,65);
+$midlighttextcolor: lighten(#2A3F41, 20%);
 $lighttextcolor: lighten(#2A3F41, 40%);
 
 $linkcolor: #5FA14F; // rgb(95,161,79);
@@ -31,4 +32,16 @@ $grid-breakpoints: map-merge(
     xxl: 1600px
   ),
   $grid-breakpoints
+);
+
+$container-max-widths: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$container-max-widths: map-merge(
+  (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
+  ),
+  $container-max-widths
 );
